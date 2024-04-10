@@ -32,7 +32,6 @@ include { GCTA_GSMR } from "./modules/local/gcta_gsmr/gsmr.nf"
 
 
 workflow {
-    reads.dump(tag:"bla")
 
     UNTAR (
         reads
