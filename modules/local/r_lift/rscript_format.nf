@@ -1,4 +1,6 @@
 process R_LIFT {
+  scratch true
+  
   """
   Runs an Rscript on the merged .txt file
   """

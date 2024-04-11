@@ -1,4 +1,6 @@
 process MERGE {
+  scratch true
+  
   """
   Merges files with names containing "chrX" (where X is 1-22)
   from each subdirectory into a single .txt file
