@@ -4,11 +4,15 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
+// exposures
 reads = Channel.fromPath('/storages/acari/julia.amorim/qtls/pqtl/ukb-ppp/*.tar')
+// banco de dados -> arquivo de texto com os filenames
 reference = Channel.fromPath("/storages/acari/julia.amorim/references/plink_bfile/EUR_phase3_chr*")
 reference.map { it -> it.getBaseName() }.unique().collectFile(name: "gsmr.input.txt", newLine:true).collect().set { ref_file }
 reference.collect().set { collected_ref }
+// sumstats outcome
 outcome = "/storages/acari/julia.amorim/qtls/SDEP_rsID.txt"
+// inner join no script do r
 sumstats = file("/data/home/julia.amorim/scripts/data/sumstats/MTAG_depression_sumstats_hg38.txt")
 
 
@@ -32,7 +36,6 @@ include { GCTA_GSMR } from "./modules/local/gcta_gsmr/gsmr.nf"
 
 
 workflow {
-    reads.dump(tag:"bla")
 
     UNTAR (
         reads

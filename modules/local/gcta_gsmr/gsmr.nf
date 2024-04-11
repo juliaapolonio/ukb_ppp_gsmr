@@ -2,7 +2,6 @@ process GCTA_GSMR {
     scratch true
     
     label 'GCTA_GSMR'
-    publishDir "${params.outdir}/results", mode: 'copy'
     container "quay.io/biocontainers/gcta:1.94.1--h9ee0642_0"
 
     input: 
