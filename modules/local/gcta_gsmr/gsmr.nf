@@ -1,4 +1,6 @@
 process GCTA_GSMR {
+    scratch true
+    
     label 'GCTA_GSMR'
     container "quay.io/biocontainers/gcta:1.94.1--h9ee0642_0"
 
