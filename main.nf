@@ -4,7 +4,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-reads = Channel.fromPath('/storages/acari/julia.amorim/qtls/pqtl/teste_nf/*.tar')
+reads = Channel.fromPath('/storages/acari/julia.amorim/qtls/pqtl/ukb-ppp/*.tar')
 reference = Channel.fromPath("/storages/acari/julia.amorim/references/plink_bfile/EUR_phase3_chr*")
 reference.map { it -> it.getBaseName() }.unique().collectFile(name: "gsmr.input.txt", newLine:true).collect().set { ref_file }
 reference.collect().set { collected_ref }
